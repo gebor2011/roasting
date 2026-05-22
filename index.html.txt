@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прожарка от Михалыча — AI-аудит смарт-контрактов и сетевых проектов</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #141722;
+            --text-main: #ffffff;
+            --text-muted: #cdcfd6;
+            --primary: #ff5722;
+            --accent: #ff9800;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* Блок с главным баннером */
+        .promo-banner {
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.15);
+            overflow: hidden;
+        }
+
+        .promo-banner img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* Крупные, читаемые тексты */
+        h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin: 40px 0 20px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 26px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .sub-tagline {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 40px auto;
+            font-weight: 500;
+        }
+
+        /* Исправленная плашка цены */
+        .price-banner {
+            background: #1a1012;
+            border: 2px solid var(--primary);
+            padding: 20px 40px;
+            border-radius: 14px;
+            display: inline-block;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 87, 34, 0.2);
+        }
+
+        .price-banner span {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .price-banner em {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* Кнопки перехода */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            max-width: 420px;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-tg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            box-shadow: 0 6px 25px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-tg:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(255, 87, 34, 0.6);
+        }
+
+        .btn-vk {
+            background: #2787f5;
+            box-shadow: 0 6px 20px rgba(39, 135, 245, 0.3);
+            max-width: 360px;
+            font-size: 18px;
+            padding: 16px 32px;
+        }
+
+        .btn-vk:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(39, 135, 245, 0.5);
+        }
+
+        /* Крупный текстовый блок взамен мелкого серого */
+        .quote-banner {
+            background: linear-gradient(135deg, #1f1315 0%, #141722 100%);
+            border-left: 6px solid var(--primary);
+            padding: 35px;
+            border-radius: 0 20px 20px 0;
+            text-align: left;
+            margin: 50px 0 70px 0;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
+
+        .quote-banner h3 {
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .quote-banner p {
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        /* Блок второго баннера (Модули безопасности) */
+        .modules-banner-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Подвал сайта */
+        footer {
+            background: #06070a;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .footer-tag {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .tagline { font-size: 20px; }
+            .sub-tagline { font-size: 16px; }
+            .price-banner span { font-size: 24px; }
+            .btn { font-size: 18px; max-width: 100%; }
+            .quote-banner h3 { font-size: 20px; }
+            .quote-banner p { font-size: 16px; }
+            .modules-banner-title { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <!-- Твой первый готовый баннер в самом верху -->
+        <div class="promo-banner">
+            <img src="banner1.jpg" alt="Прожарка от Михалыча">
+        </div>
+
+        <h1>Прожарка от Михалыча</h1>
+        <p class="tagline">Держите кошелёк и репутацию под железной защитой.</p>
+        <p class="sub-tagline">Прежде чем зайти в МЛМ-проект, хайп, смарт-контракт или вложить деньги и позвать людей — проверьте его до молекул на независимом аудите.</p>
+        
+        <!-- Косяк со слэшем исправлен -->
+        <div class="price-banner">
+            <span>Цена полной прожарки: <em>$7</em></span>
+        </div>
+
+        <div class="cta-group">
+            <a href="https://t.me" target="_blank" class="btn btn-tg">
+                Заказать в Telegram
+            </a>
+            <a href="https://vk.com" target="_blank" class="btn btn-vk">
+                Мы ВКонтакте
+            </a>
+        </div>
+
+        <!-- Крупный белый текст вместо невидимого серого -->
+        <section class="quote-banner">
+            <h3>Ты будешь знать о проекте больше, чем все его лидеры и админы.</h3>
+            <p>Одна прожарка занимает минуты, но навсегда спасает сотни ваших долларов, личное время и честное лицо перед знакомыми.</p>
+        </section>
+
+        <!-- Твой второй готовый баннер с 14 модулями вместо пустой кривой сетки -->
+        <h2 class="modules-banner-title">14 жестких модулей безопасности</h2>
+        <div class="promo-banner" style="margin-bottom: 80px;">
+            <img src="banner2.jpg" alt="14 модулей безопасности">
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-tag">📉 Твоя репутация дороже любой рефералки!</p>
+            <p>© 2026 Прожарка от Михалыча. Специальный AI-аудит. Что найдём — покажем. Чего нет — скажем честно.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
